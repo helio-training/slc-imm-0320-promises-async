@@ -25,15 +25,17 @@ const table = () => {
     const iou = new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log('Ordering Food', 3);
+            let order = 'Gruel';
+            // let order = 'Vegan Bacon Chicken Ranch Pizza';
             // Daisy Chaining '.then()' is acceptable 
-            kitchen('Gruel').then((response) => {
+            kitchen(order).then((response) => {
                 console.log(response, 5);
             }).then(() => {
                 console.log('Eating Food', 6);
             }).then(()=>{
                 console.log('Paying the check', 7); 
             }).then(() => {
-                resolve();
+                resolve('Leaving Restaurant ' + 8);
             }).catch((error) => {
                 console.log(error, 0);
                 reject('Storming out of the Restaurant');
@@ -44,13 +46,15 @@ const table = () => {
 }
 
 // ENTRY POINT 
-const main = () => {
+const main = async () => {
     console.log('Entering Restaurant', 1); 
-    table().then(()=>{
-        console.log('Leaving Restaurant', 8); 
-    }).catch((error) => {
+    const result = await table().catch((error) => {
         console.log(error, -1);
+        // return 'Dine & Dash';
     });
+    if(result){
+        console.log('Finally', result);
+    }
 }
 
 main();
