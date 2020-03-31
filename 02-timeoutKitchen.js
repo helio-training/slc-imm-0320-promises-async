@@ -10,19 +10,20 @@ const kitchen = () => {
 
 // FRONTEND - Table
 const table = () => {
-    console.log('Sitting at table', 2); 
-    setTimeout(()=> {
+    console.log('Sitting at table', 2);
+    setTimeout(() => {
         console.log('Ordering Food', 3);
         kitchen();
+        console.log('Eating Food', 6);
     }, 1000)
-    console.log('Paying the check', 6); 
+    console.log('Paying the check', 7);
 }
 
 // ENTRY POINT 
 const main = () => {
-    console.log('Entering Restaurant', 1); 
+    console.log('Entering Restaurant', 1);
     table();
-    console.log('Leaving Restaurant', 7); 
+    console.log('Leaving Restaurant', 8);
 }
 
 main();
