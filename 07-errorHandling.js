@@ -48,13 +48,15 @@ const table = () => {
 // ENTRY POINT 
 const main = async () => {
     console.log('Entering Restaurant', 1); 
-    const result = await table().catch((error) => {
+    try {
+        const result = await table();
+        if (result) {
+            console.log('Finally', result, 8);
+        }
+    } catch(error){
         console.log(error, -1);
-        // return 'Dine & Dash';
-    });
-    if(result){
-        console.log('Finally', result, 8);
     }
+    
 }
 
 main();
